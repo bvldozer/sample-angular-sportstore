@@ -6,7 +6,7 @@ import { Order } from "./order.model";
 import { HttpHeaders } from '@angular/common/http';
 
 const PROTOCOL = "http";
-const PORT = 3500;
+const PORT = 80;
 
 @Injectable()
 export class RestDataSource {
@@ -14,7 +14,8 @@ export class RestDataSource {
   auth_token?: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
+    // this.baseUrl = "/api/"
   }
 
   getProducts(): Observable<Product[]> {
